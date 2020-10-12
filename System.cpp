@@ -153,21 +153,7 @@ Book& System::bookFind(const std::string& option, const std::string& name)
 			}
 
 		}
-		if (option == "tag")
-		{
-			bool isValid = false;
-			for (size_t i = 0; i < books.getSize(); i++)
-			{
-				//
-				//
-				//
-			}
-			if (isValid == false)
-			{
-				std::cout << "Invalid tag" << std::endl;
-			}
-
-		}
+		
 	}
 	else
 	{
@@ -178,7 +164,7 @@ Book& System::bookFind(const std::string& option, const std::string& name)
 
 
 
-void System::pushUser(std::string name, std::string password)
+void System::pushUser(std::string& name, std::string& password)
 {
 	User user;
 	user.setName(name);
@@ -356,7 +342,7 @@ D_array<Book> System::getBooks() const
 }
 void System::quickSort(const std::string& option,int first, int last,bool isAsc)
 {
-	//the definite way of quicksort is read from internet.. dont remember where but the code is written by myself 
+	
 	int p = 0, j, i;
 	Book temp;
 	if (first < last)
@@ -456,72 +442,9 @@ void System::quickSort(const std::string& option,int first, int last,bool isAsc)
 		quickSort(option,first, j - 1,isAsc);
 		quickSort(option,j + 1, last,isAsc);
 	}
-	//the definite way of quicksort is read from internet.. dont remember where but the code is written by myself 
 	
 }
 
-void System::quickSort2(const std::string& option,int first, int last,bool isAsc)
-{
-	//the definite way of quicksort is read from internet.. dont remember where but the code is written by myself 
-	int p = 0, j, i;
-	Book temp;
-	if (first < last)
-	{
-		p = first;
-		i = first;
-		j = last;
-
-		while (i < j)
-		{
-			if (isAsc)
-			{
-				while (books[i].getFirstLetter(option) >= books[p].getFirstLetter(option) && i < last)
-				{
-					i++;
-					while (books[j].getFirstLetter(option) < books[p].getFirstLetter(option))
-					{
-						j--;
-					}
-
-					if (i < j)
-					{
-						temp = books[i];
-						books[i] = books[j];
-						books[j] = temp;
-					}
-				}
-			}
-			else
-			{
-				while (books[i].getFirstLetter(option) <= books[p].getFirstLetter(option) && i < last)
-				{
-					i++;
-					while (books[j].getFirstLetter(option) > books[p].getFirstLetter(option))
-					{
-						j--;
-					}
-
-					if (i < j)
-					{
-						temp = books[i];
-						books[i] = books[j];
-						books[j] = temp;
-					}
-				}
-			}
-		}
-		temp = books[p];
-		books[p] = books[j];
-		books[j] = temp;
-
-
-		quickSort2(option,first, j - 1,isAsc);
-		quickSort2(option,j + 1, last,isAsc);
-	}
-
-	
-	//the definite way of quicksort is read from internet.. dont remember where but the code is written by myself 
-}
 
 void System::booksSort(const std::string& option,bool isAsc)
 {

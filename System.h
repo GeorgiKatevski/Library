@@ -46,17 +46,14 @@ public:
 	//ili size_t no isbn po princip ima i bukvi
 
 	void quickSort(const std::string& option,int first, int last,bool isAsc);
-	void quickSort2(const std::string& optrion,int first, int last,bool isAsc);
-
-
+	
 
 
 	Book& bookFind(const std::string& option,const std::string& name);
 	
 	void booksSort(const std::string& option,bool isAsc);
-	//Ascending order true 
-	//descending order - false
-	void pushUser(std::string name, std::string password);
+	
+	void pushUser(std::string& name, std::string& password);
 
 	void addUser(const User& user);
 
